@@ -212,12 +212,21 @@ class MainApp(tk.Tk):
                 return
 
     def add_item(self, new_item_data):
-        """Adds a new item to the master list and saves to JSON."""
+        """
+        Adds a new item to the master list if the name doesn't already exist.
+        Saves to JSON on success. Returns True on success, False on failure.
+        """
+        new_item_name = new_item_data.get("name", "").strip()
+        # Check for existing item with the same name (case-insensitive)
+        if any(item.get("name", "").strip().lower() == new_item_name.lower() for item in self.items):
+            return False  # Item with this name already exists
+
         self.items.append(new_item_data)
         self.save_items_to_json()
         # Refresh screens that show items
         self.frames["AdminScreen"].populate_items()
         self.frames["KioskFrame"].populate_items()
+        return True
 
     def update_item(self, original_item_name, updated_item_data):
         """Updates an existing item in the master list and saves to JSON."""

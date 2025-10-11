@@ -148,10 +148,17 @@ class ItemEditWindow(tk.Toplevel):
 
         if self.item_data:  # Editing existing item
             self.controller.update_item(self.item_data["name"], new_data)
+            self.destroy()
         else:  # Adding new item
-            self.controller.add_item(new_data)
-
-        self.destroy()
+            success = self.controller.add_item(new_data)
+            if success:
+                self.destroy()
+            else:
+                messagebox.showerror(
+                    "Duplicate Item",
+                    f"An item with the name '{new_data['name']}' already exists.",
+                    parent=self
+                )
 
 
 class AdminScreen(tk.Frame):
