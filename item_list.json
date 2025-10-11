@@ -1,0 +1,324 @@
+[
+    {
+        "name": "10 ohm Resistor 123",
+        "description": "Fixed carbon film resistor, 1/4W, 10 ohm (\u03a9)",
+        "price": 1.0,
+        "quantity": 0,
+        "image": ""
+    },
+    {
+        "name": "100 ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 100 ohm (\u03a9)",
+        "price": 1.0,
+        "quantity": 45,
+        "image": "images/100ohm_resistor.jpg"
+    },
+    {
+        "name": "220 ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 220 ohm (\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "270 ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 270 ohm (\u03a9)",
+        "price": 1.0,
+        "quantity": 49,
+        "image": ""
+    },
+    {
+        "name": "1k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 1k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "3.3k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 3.3k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "5k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 5k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "10k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 10k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 25,
+        "image": ""
+    },
+    {
+        "name": "20k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 20k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "39k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 39k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "50k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 50k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "100k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 100k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "150k ohm Resistor",
+        "description": "Fixed carbon film resistor, 1/4W, 150k ohm (k\u03a9)",
+        "price": 1.0,
+        "quantity": 50,
+        "image": ""
+    },
+    {
+        "name": "10k ohm Potentiometer",
+        "description": "Linear Taper Rotary Potentiometer, 10k ohm (k\u03a9)",
+        "price": 20.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "20k ohm Potentiometer",
+        "description": "Linear Taper Rotary Potentiometer, 20k ohm (k\u03a9)",
+        "price": 20.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Diode 1N4001",
+        "description": "General purpose diode, 1A, 50V",
+        "price": 2.0,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Diode 2N540D",
+        "description": "Medium current silicon diode",
+        "price": 3.5,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "Diode 1N5758",
+        "description": "Silicon planar Zener diode, 1N5758 series",
+        "price": 4.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "Transistor 2N3904",
+        "description": "NPN General Purpose Amplifier, TO-92",
+        "price": 4.0,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Transistor 2N3906",
+        "description": "PNP General Purpose Amplifier, TO-92",
+        "price": 4.0,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Transistor TIP3055",
+        "description": "NPN Power Transistor, TO-247 (or TO-3P)",
+        "price": 40.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Transistor TIP2955",
+        "description": "PNP Power Transistor, TO-247 (or TO-3P)",
+        "price": 40.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Voltage Regulator LM7809",
+        "description": "Fixed +9V, 1A positive linear voltage regulator, TO-220",
+        "price": 15.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Voltage Regulator LM7805",
+        "description": "Fixed +5V, 1A positive linear voltage regulator, TO-220",
+        "price": 15.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Voltage Regulator LM317T",
+        "description": "Adjustable 1.2V to 37V positive linear voltage regulator, TO-220",
+        "price": 25.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "SCR (295060)",
+        "description": "Silicon Controlled Rectifier (SCR) module or component",
+        "price": 30.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Semiconductor 2N6073",
+        "description": "Sensitive Gate SCR/Thyristor, 4A, 200V",
+        "price": 12.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "Semiconductor 2N6397",
+        "description": "SCR/Thyristor, 12A, 50V",
+        "price": 20.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Semiconductor 2N6027",
+        "description": "Programmable Unijunction Transistor (PUT), TO-92",
+        "price": 8.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "Blue LED",
+        "description": "Standard 5mm Round LED, Diffused/Clear Lens",
+        "price": 3.0,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Red LED",
+        "description": "Standard 5mm Round LED, Diffused/Clear Lens",
+        "price": 2.5,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Green LED",
+        "description": "Standard 5mm Round LED, Diffused/Clear Lens",
+        "price": 2.5,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Yellow LED",
+        "description": "Standard 5mm Round LED, Diffused/Clear Lens",
+        "price": 2.5,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "Tactile Switch",
+        "description": "Momentary push-button switch (6x6mm), Through-hole",
+        "price": 4.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "DIP Switch",
+        "description": "4-position Dual In-line Package (DIP) switch",
+        "price": 18.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "100nF Capacitor",
+        "description": "Ceramic or Film Capacitor, 0.1 \u00b5F (100nF)",
+        "price": 2.0,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "330nF Capacitor",
+        "description": "Ceramic or Film Capacitor, 0.33 \u00b5F (330nF)",
+        "price": 2.5,
+        "quantity": 15,
+        "image": ""
+    },
+    {
+        "name": "1 \u00b5F Capacitor",
+        "description": "Electrolytic Capacitor, 1 \u00b5F",
+        "price": 3.0,
+        "quantity": 20,
+        "image": ""
+    },
+    {
+        "name": "5 \u00b5F Capacitor",
+        "description": "Electrolytic Capacitor, 5 \u00b5F (or 4.7 \u00b5F standard)",
+        "price": 5.0,
+        "quantity": 15,
+        "image": ""
+    },
+    {
+        "name": "10 \u00b5F Capacitor",
+        "description": "Electrolytic Capacitor, 10 \u00b5F",
+        "price": 6.0,
+        "quantity": 15,
+        "image": ""
+    },
+    {
+        "name": "50 \u00b5F Capacitor",
+        "description": "Electrolytic Capacitor, 50 \u00b5F (or 47 \u00b5F standard)",
+        "price": 8.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "150 \u00b5F Capacitor",
+        "description": "Electrolytic Capacitor, 150 \u00b5F",
+        "price": 10.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "470 \u00b5F Capacitor",
+        "description": "Electrolytic Capacitor, 470 \u00b5F",
+        "price": 12.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "IR Sensor",
+        "description": "Infrared (IR) Receiver and Transmitter pair, used for line following/distance",
+        "price": 30.0,
+        "quantity": 5,
+        "image": ""
+    },
+    {
+        "name": "Photodiode",
+        "description": "Light sensitive diode, used for light detection/measurement",
+        "price": 8.0,
+        "quantity": 10,
+        "image": ""
+    },
+    {
+        "name": "PIR Sensor",
+        "description": "Passive Infrared (PIR) motion sensor module (e.g., HC-SR501)",
+        "price": 60.0,
+        "quantity": 3,
+        "image": ""
+    }
+]
