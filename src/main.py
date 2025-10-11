@@ -87,6 +87,10 @@ class MainApp(tk.Tk):
         """Toggles between fullscreen and a windowed 'half-screen' mode."""
         self.is_fullscreen = not self.is_fullscreen
         self.attributes("-fullscreen", self.is_fullscreen)
+        
+        if self.is_fullscreen:
+            # Ensure geometry is set to max for systems like RPi
+            self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
 
         if not self.is_fullscreen:
             # When exiting fullscreen, set a specific size and position

@@ -293,10 +293,9 @@ class KioskFrame(tk.Frame):
             card = self.create_item_card(scrollable_frame, item)
             card.grid(row=row, column=col, padx=15, pady=15, sticky="nsew")
         
-        # Force an update of the layout to get the new frame width
-        scrollable_frame.update_idletasks()
-        # Manually call center_frame after populating
-        self.center_frame()
+        # Schedule center_frame to run after the layout has been updated
+        # This ensures we get the correct width for the scrollable_frame
+        self.after(10, self.center_frame)
 
     def center_frame(self, event=None):
         """Callback function to center the scrollable frame inside the canvas."""
