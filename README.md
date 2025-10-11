@@ -42,8 +42,19 @@ Follow these steps to get the application running on your local machine.
     cd py-electronics-vending-machine
     ```
 
-2.  **Navigate to the project directory.**
-    Make sure you are in the root directory of the project (the one containing `src` and `requirements.txt`).
+2.  **Create and activate a virtual environment.**
+    It's highly recommended to use a virtual environment to keep dependencies isolated.
+
+    - On **Windows**:
+      ```sh
+      python -m venv venv
+      .\venv\Scripts\activate
+      ```
+    - On **macOS and Linux**:
+      ```sh
+      python3 -m venv venv
+      . /venv/bin/activate
+      ```
 
 3.  **Install the required dependencies.**
     Run the following command in your terminal. This will install the `Pillow` library, which is needed for image handling.
@@ -53,11 +64,10 @@ Follow these steps to get the application running on your local machine.
 
 ## Usage
 
-To run the application, navigate to the `src` directory and execute the `main.py` script:
+To run the application, navigate to the `src` directory and execute the `main.py` script from the project root:
 
 ```sh
-cd src
-python main.py
+python src/main.py
 ```
 
 The application will start in fullscreen mode, presenting the Kiosk/Admin selection screen.
