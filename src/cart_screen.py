@@ -214,14 +214,20 @@ class CartScreen(tk.Frame):
 
     def checkout(self):
         print("Checkout process initiated.")
-        # Call the new controller method before clearing the cart
-        self.controller.handle_checkout(self.controller.cart)
-        self.controller.clear_cart()
-        # After checkout, we need to show a confirmation or go back
-        # For now, just refreshing the cart to show it's empty.
-        self.update_cart([])  # Refresh the view to show an empty cart
-        tk.messagebox.showinfo(
-            "Checkout Complete",
-            "Your purchase was successful and the cart has been cleared.",
-        )
-        self.controller.show_kiosk()
+        # The controller's handle_checkout now returns True for success, False for failure.
+        checkout_successful = self.controller.handle_checkout(self.controller.cart)
+
+        if checkout_successful:
+            self.controller.clear_cart()
+            tk.messagebox.showinfo(
+                "Checkout Complete",
+                "Your purchase was successful and the cart has been cleared.",
+            )
+            self.controller.show_kiosk()
+        else:
+            # If checkout fails, show an error and do NOT clear the cart.
+            # The quantities have already been restored by the controller.
+            tk.messagebox.showerror(
+                "Checkout Failed",
+                "There was a problem processing your order. Please try again.",
+            )

@@ -87,7 +87,7 @@ class MainApp(tk.Tk):
         """Toggles between fullscreen and a windowed 'half-screen' mode."""
         self.is_fullscreen = not self.is_fullscreen
         self.attributes("-fullscreen", self.is_fullscreen)
-        
+
         if self.is_fullscreen:
             # Ensure geometry is set to max for systems like RPi
             self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
@@ -177,8 +177,23 @@ class MainApp(tk.Tk):
         self.cart.clear()
 
     def handle_checkout(self, checked_out_items):
-        """Processes and prints the items at checkout."""
-        print(checked_out_items)
+        """
+        Processes items at checkout. In a real app, this would handle payment.
+        Here, we simulate a potential failure.
+        Returns True on success, False on failure.
+        """
+
+        # TODO: Replace this simulation with real payment processing logic.
+        import random
+
+        # Simulate a 50% chance of checkout failure
+        if random.random() < 0.5:
+            print("Checkout failed. (Simulated)")
+            return False
+
+        print("Checkout successful. Items processed:", checked_out_items)
+        self.save_items_to_json()  # Persist the new quantities
+        return True
 
     def reduce_item_quantity(self, item, quantity):
         """Reduces the quantity of the item in the KioskFrame."""
