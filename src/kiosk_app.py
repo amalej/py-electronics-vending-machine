@@ -300,6 +300,10 @@ class KioskFrame(tk.Frame):
     def center_frame(self, event=None):
         """Callback function to center the scrollable frame inside the canvas."""
         scrollable_frame = self.canvas.nametowidget(self.canvas.itemcget(self.canvas_window, 'window'))
+        
+        # Force the geometry manager to process layout changes
+        scrollable_frame.update_idletasks()
+        
         canvas_width = self.canvas.winfo_width()
         frame_width = scrollable_frame.winfo_width()
         
