@@ -71,7 +71,7 @@ jobs:
       - name: Upload asset to release
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.UPLOAD_RELEASE_ASSET_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./electronics-vending-machine-bundle-windows.zip
@@ -130,7 +130,7 @@ jobs:
       - name: Upload asset to release
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.UPLOAD_RELEASE_ASSET_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./electronics-vending-machine-bundle-linux.zip
