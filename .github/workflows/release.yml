@@ -49,11 +49,28 @@ jobs:
             echo "Warning: EXE not found at dist/electronics-vending-machine.exe"
           fi
 
-          echo '{"currency_symbol": "\u20b1"}' > config.json
-          echo '[]' > item_list.json
+          # Create config and item list inside the artifact directory
+          echo '{"currency_symbol": "\u20b1"}' > "$ART_DIR/config.json"
+          echo '[]' > "$ART_DIR/item_list.json"
 
       - name: Upload release bundle artifact
         uses: actions/upload-artifact@v4
         with:
           name: electronics-vending-machine-bundle
           path: release_artifact
+
+      - name: Zip release artifact
+        shell: bash
+        run: |
+          cd release_artifact
+          zip -r ../electronics-vending-machine-bundle.zip .
+
+      - name: Upload asset to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.UPLOAD_RELEASE_ASSET_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./electronics-vending-machine-bundle.zip
+          asset_name: electronics-vending-machine-bundle.zip
+          asset_content_type: application/zip
