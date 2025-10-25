@@ -23,8 +23,10 @@ jobs:
           pip install pyinstaller pillow
 
       - name: Build EXE with PyInstaller
+        shell: bash
         run: |
-          pyinstaller --noconfirm --clean --onefile --windowed \
+          # Ensure app_icon.png is at repo root. Adjust path if necessary.
+          python -m PyInstaller --noconfirm --clean --onefile --windowed \
             --name "electronics-vending-machine" \
             --icon "app_icon.png" \
             src/main.py
