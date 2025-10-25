@@ -60,10 +60,8 @@ jobs:
           path: release_artifact
 
       - name: Zip release artifact
-        shell: bash
-        run: |
-          cd release_artifact
-          zip -r ../electronics-vending-machine-bundle.zip .
+        shell: powershell
+        run: Compress-Archive -Path release_artifact\* -DestinationPath electronics-vending-machine-bundle.zip
 
       - name: Upload asset to release
         uses: actions/upload-release-asset@v1
