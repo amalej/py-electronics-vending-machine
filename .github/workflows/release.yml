@@ -38,8 +38,8 @@ jobs:
         shell: bash
         run: |
           set -e
-          ART_DIR="release_artifact"
-          rm -rf "$ART_DIR"
+          # This will be the name of the folder inside the zip
+          ART_DIR="artifacts/electronics-vending-machine-bundle"
           mkdir -p "$ART_DIR"
 
           # Copy the built EXE (if present)
@@ -57,11 +57,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: electronics-vending-machine-bundle
-          path: release_artifact
+          path: artifacts/electronics-vending-machine-bundle
 
       - name: Zip release artifact
         shell: powershell
-        run: Compress-Archive -Path release_artifact\* -DestinationPath electronics-vending-machine-bundle.zip
+        run: Compress-Archive -Path artifacts/electronics-vending-machine-bundle -DestinationPath electronics-vending-machine-bundle.zip
 
       - name: Upload asset to release
         uses: actions/upload-release-asset@v1
