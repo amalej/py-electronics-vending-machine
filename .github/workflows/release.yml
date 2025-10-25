@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.13"
+          python-version: "3.14"
 
       - name: Install build dependencies
         run: |
@@ -34,8 +34,26 @@ jobs:
       - name: List dist folder
         run: dir dist
 
-      - name: Upload EXE artifact
+      - name: Prepare release bundle
+        shell: bash
+        run: |
+          set -e
+          ART_DIR="release_artifact"
+          rm -rf "$ART_DIR"
+          mkdir -p "$ART_DIR"
+
+          # Copy the built EXE (if present)
+          if [ -f "dist/electronics-vending-machine.exe" ]; then
+            cp "dist/electronics-vending-machine.exe" "$ART_DIR/"
+          else
+            echo "Warning: EXE not found at dist/electronics-vending-machine.exe"
+          fi
+
+          echo '{"currency_symbol": "\u20b1"}' > config.json
+          echo '[]' > item_list.json
+
+      - name: Upload release bundle artifact
         uses: actions/upload-artifact@v4
         with:
-          name: electronics-vending-machine-exe
-          path: dist/electronics-vending-machine.exe
+          name: electronics-vending-machine-bundle
+          path: release_artifact
