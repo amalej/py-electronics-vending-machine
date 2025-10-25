@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-exe:
+  build-windows:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: "3.14"
@@ -39,14 +39,19 @@ jobs:
         run: |
           set -e
           # This will be the name of the folder inside the zip
-          ART_DIR="artifacts/electronics-vending-machine-bundle"
-          mkdir -p "$ART_DIR"
+          ART_DIR="electronics-vending-machine-bundle-windows"
+          mkdir -p "$ART_DIR/images"
 
           # Copy the built EXE (if present)
           if [ -f "dist/electronics-vending-machine.exe" ]; then
             cp "dist/electronics-vending-machine.exe" "$ART_DIR/"
           else
             echo "Warning: EXE not found at dist/electronics-vending-machine.exe"
+          fi
+
+          # Copy images folder
+          if [ -d "images" ]; then
+            cp -r images/* "$ART_DIR/images/"
           fi
 
           # Create config and item list inside the artifact directory
@@ -56,19 +61,78 @@ jobs:
       - name: Upload release bundle artifact
         uses: actions/upload-artifact@v4
         with:
-          name: electronics-vending-machine-bundle
-          path: artifacts/electronics-vending-machine-bundle
+          name: electronics-vending-machine-bundle-windows
+          path: electronics-vending-machine-bundle-windows
 
       - name: Zip release artifact
         shell: powershell
-        run: Compress-Archive -Path artifacts/electronics-vending-machine-bundle -DestinationPath electronics-vending-machine-bundle.zip
+        run: Compress-Archive -Path electronics-vending-machine-bundle-windows -DestinationPath electronics-vending-machine-bundle-windows.zip
 
       - name: Upload asset to release
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.UPLOAD_RELEASE_ASSET_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./electronics-vending-machine-bundle.zip
-          asset_name: electronics-vending-machine-bundle.zip
+          asset_path: ./electronics-vending-machine-bundle-windows.zip
+          asset_name: electronics-vending-machine-bundle-windows.zip
+          asset_content_type: application/zip
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Linux dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-tk python3-pil.imagetk
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller pillow
+
+      - name: Build Executable with PyInstaller
+        run: |
+          python -m PyInstaller --noconfirm --clean --onefile --windowed \
+            --name "electronics-vending-machine" \
+            --icon "app_icon.png" \
+            src/main.py
+
+      - name: List dist folder
+        run: ls -l dist
+
+      - name: Prepare release bundle
+        run: |
+          set -e
+          ART_DIR="electronics-vending-machine-bundle-linux"
+          mkdir -p "$ART_DIR/images"
+
+          cp "dist/electronics-vending-machine" "$ART_DIR/"
+
+          if [ -d "images" ]; then
+            cp -r images/* "$ART_DIR/images/"
+          fi
+
+          echo '{"currency_symbol": "\u20b1"}' > "$ART_DIR/config.json"
+          echo '[]' > "$ART_DIR/item_list.json"
+
+      - name: Zip release artifact
+        run: zip -r electronics-vending-machine-bundle-linux.zip electronics-vending-machine-bundle-linux
+
+      - name: Upload asset to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./electronics-vending-machine-bundle-linux.zip
+          asset_name: electronics-vending-machine-bundle-linux.zip
           asset_content_type: application/zip
