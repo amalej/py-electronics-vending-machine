@@ -46,6 +46,7 @@ class MainApp(tk.Tk):
 
     def load_items_from_json(self, file_path):
         """Loads item data from a JSON file."""
+        default_items = []
         try:
             with open(file_path, "r") as file:
                 return json.load(file)
@@ -53,16 +54,16 @@ class MainApp(tk.Tk):
             print(
                 f"Warning: {file_path} not found. Generating a new one with default items."
             )
-            default_items = []
             with open(file_path, "w") as file:
                 json.dump(default_items, file, indent=4)
             return default_items
         except json.JSONDecodeError:
             print(f"Error: Could not decode JSON from {file_path}.")
-            return []
+            return default_items
 
     def load_config_from_json(self, file_path):
         """Loads item data from a JSON file."""
+        default_config = {"currency_symbol": "$"}
         try:
             with open(file_path, "r") as file:
                 return json.load(file)
@@ -70,13 +71,12 @@ class MainApp(tk.Tk):
             print(
                 f"Warning: {file_path} not found. Generating a new one with default items."
             )
-            default_config = {"currency_symbol": "$"}
             with open(file_path, "w") as file:
                 json.dump(default_config, file, indent=4)
             return default_config
         except json.JSONDecodeError:
             print(f"Error: Could not decode JSON from {file_path}.")
-            return []
+            return default_config
 
     def save_items_to_json(self):
         """Saves the current item list to the JSON file."""
@@ -218,7 +218,10 @@ class MainApp(tk.Tk):
         """
         new_item_name = new_item_data.get("name", "").strip()
         # Check for existing item with the same name (case-insensitive)
-        if any(item.get("name", "").strip().lower() == new_item_name.lower() for item in self.items):
+        if any(
+            item.get("name", "").strip().lower() == new_item_name.lower()
+            for item in self.items
+        ):
             return False  # Item with this name already exists
 
         self.items.append(new_item_data)
